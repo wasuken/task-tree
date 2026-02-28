@@ -107,14 +107,12 @@ export const TaskNode: React.FC<TaskNodeProps> = ({
           <Text style={styles.addButtonText}>+</Text>
         </TouchableOpacity>
 
-        {task.parentId && (
-          <TouchableOpacity
-            style={styles.deleteButton}
-            onPress={() => onDeleteTask(taskId)}
-          >
-            <Text style={styles.deleteButtonText}>×</Text>
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={() => onDeleteTask(taskId)}
+        >
+          <Text style={styles.deleteButtonText}>×</Text>
+        </TouchableOpacity>
       </View>
       {isExpanded &&
         task.childIds.map((childId) => (
