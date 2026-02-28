@@ -9,9 +9,10 @@ import {
   StatusBar,
   TouchableOpacity,
 } from "react-native";
-import { Task, TaskMap } from "./src/types";
-import { TaskNode } from "./src/components/TaskTree";
-import { getCompletedMinutes, getProgress } from "./src/utils";
+import { Task, TaskMap } from "@/src/types";
+import { TaskNode } from "@/src/components/TaskTree";
+import { getCompletedMinutes, getProgress } from "@/src/utils";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const initialTasks: TaskMap = {
   root1: {
@@ -24,8 +25,9 @@ const initialTasks: TaskMap = {
   },
 };
 
-export default function App() {
+export default function HomeScreen() {
   const [taskMap, setTaskMap] = useState<TaskMap>(initialTasks);
+  const insets = useSafeAreaInsets();
 
   const onAddRootTask = () => {
     const newId = `root_${Math.random().toString(36).substring(2, 9)}`;
@@ -168,7 +170,7 @@ export default function App() {
   const progress = total > 0 ? completed / total : 0;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.appHeader}>
         <View style={styles.headerTop}>

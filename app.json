@@ -2,6 +2,7 @@
   "expo": {
     "name": "task-tree",
     "slug": "task-tree",
+    "scheme": "task-tree",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -31,6 +32,7 @@
       "eas": {
         "projectId": "f468e0b9-9c4b-484f-8fd4-09de05187b84"
       }
-    }
+    },
+    "plugins": ["expo-router"]
   }
 }
